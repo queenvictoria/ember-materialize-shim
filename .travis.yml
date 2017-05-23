@@ -32,7 +32,7 @@ before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
 
 install:
-  - yarn install --no-lockfile
+  - yarn install
   - bower install
 
 script:
