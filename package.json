@@ -40,6 +40,7 @@
     "ember-resolver": "^4.1.0",
     "ember-suave": "4.0.1",
     "ember-sublime": "0.0.9",
+    "greenkeeper-lockfile": "^1.2.1",
     "loader.js": "^4.0.1",
     "os-locale": "^2.0.0",
     "y18n": "^3.2.1"
