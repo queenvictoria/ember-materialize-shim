@@ -33,10 +33,10 @@ after_script: greenkeeper-lockfile-upload
 
 install:
   - yarn install --no-lockfile
-  - npm rebuild node-sass
   - bower install
 
 script:
   # Usually, it's ok to finish the test scenario without reverting
   #  to the addon's original dependency state, skipping "cleanup".
+  - npm rebuild node-sass
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
