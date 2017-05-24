@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/mike-north/ember-materialize-shim.svg?branch=master)](https://travis-ci.org/mike-north/ember-materialize-shim)
 [![Greenkeeper badge](https://badges.greenkeeper.io/mike-north/ember-materialize-shim.svg)](https://greenkeeper.io/)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-materialize-shim.svg)]
+[![dependencies Status](https://david-dm.org/mike-north/ember-materialize-shim/status.svg)](https://david-dm.org/mike-north/ember-materialize-shim)
+[![devDependencies Status](https://david-dm.org/mike-north/ember-materialize-shim/dev-status.svg)](https://david-dm.org/mike-north/ember-materialize-shim?type=dev)
 
 **[FASTBOOT](http://ember-fastboot.com) COMPATIBLE**
 
