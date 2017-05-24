@@ -1,7 +1,7 @@
-/* jshint node: true */
+/* eslint-env node */
 'use strict';
 
-var FONT_FILES = [
+let FONT_FILES = [
   'Roboto-Thin.woff2',
   'Roboto-Thin.woff',
   'Roboto-Thin.ttf',
@@ -19,29 +19,28 @@ var FONT_FILES = [
   'Roboto-Bold.ttf'
 ];
 
-
 function fontPath(app, name) {
-  return app.bowerDirectory + '/materialize/dist/fonts/roboto/' + name;
+  return `${app.bowerDirectory  }/materialize/dist/fonts/roboto/${  name}`;
 }
 
 module.exports = {
   name: 'ember-materialize-shim',
-  included: function(appOrAddon) {
+  included(appOrAddon) {
     this._super.included(appOrAddon);
-    var app = appOrAddon;
+    let app = appOrAddon;
     if (typeof appOrAddon.import !== 'function' && appOrAddon.app) {
       app = appOrAddon.app;
     }
     this.app = app;
 
-    for (var i = 0; i < FONT_FILES.length; i++) {
+    for (let i = 0; i < FONT_FILES.length; i++) {
       app.import(fontPath(app, FONT_FILES[i]), {
         destDir: 'assets'
       });
     }
 
     if (!process.env.EMBER_CLI_FASTBOOT && !(app.options['materialize-shim'] || {}).omitJS) {
-      app.import(app.bowerDirectory + '/materialize/dist/js/materialize.js');
+      app.import(`${app.bowerDirectory  }/materialize/dist/js/materialize.js`);
       app.import('vendor/materialize-shim.js', {
         exports: {
           materialize: ['default']

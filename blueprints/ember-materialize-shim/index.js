@@ -1,9 +1,9 @@
-/*jshint node:true*/
+/* eslint-env node*/
 module.exports = {
   description: 'ember-materialize-shim installation blueprint',
-  normalizeEntityName: function() {},
+  normalizeEntityName() {},
 
-  beforeInstall: function() {
+  beforeInstall() {
     return this.addBowerPackageToProject('materialize', '0.97.7').then(function() {
       return this.addAddonsToProject({
         packages: [{
