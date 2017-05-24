@@ -1,5 +1,6 @@
-# Ember-materialize-shim [![Build Status](https://travis-ci.org/levanto-financial/ember-materialize-shim.svg?branch=master)](https://travis-ci.org/levanto-financial/ember-materialize-shim)
+# Ember-materialize-shim
 
+[![Build Status](https://travis-ci.org/mike-north/ember-materialize-shim.svg?branch=master)](https://travis-ci.org/mike-north/ember-materialize-shim)
 [![Greenkeeper badge](https://badges.greenkeeper.io/mike-north/ember-materialize-shim.svg)](https://greenkeeper.io/)
 
 **[FASTBOOT](http://ember-fastboot.com) COMPATIBLE**
