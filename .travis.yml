@@ -5,6 +5,9 @@ node_js:
 
 sudo: false
 
+cache:
+  yarn: true
+
 env:
   # we recommend testing LTS's and latest stable release (bonus points to beta/canary)
   - EMBER_TRY_SCENARIO=ember-lts-2.4
@@ -26,7 +29,7 @@ before_install:
   - phantomjs --version
 
 install:
-  - yarn install
+  - yarn install --no-lockfile
   - bower install
 
 script:
