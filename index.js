@@ -47,11 +47,7 @@ module.exports = {
 
     if (!(app.options['materialize-shim'] || {}).omitJS) {
       app.import('vendor/materialize/materialize.js');
-      app.import('vendor/materialize-shim.js', {
-        exports: {
-          materialize: ['default']
-        }
-      });
+      app.import('vendor/materialize-shim.js');
     }
   },
 
