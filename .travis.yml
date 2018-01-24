@@ -5,7 +5,9 @@ node_js:
   # so that your addon works for all apps
   - "4"
 
-sudo: false
+# See https://github.com/ember-cli/ember-cli/pull/7549/files
+# (or trying using `--no-sandbox`)
+sudo: required
 dist: trusty
 
 addons:
