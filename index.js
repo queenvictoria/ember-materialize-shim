@@ -46,28 +46,34 @@ module.exports = {
     }
 
     if (!(app.options['materialize-shim'] || {}).omitJS) {
-      app.import('vendor/materialize/materialize.js');
-      app.import('vendor/materialize-shim.js');
+      app.import('vendor/fastboot-transformed/materialize/materialize.js');
+      app.import('vendor/fastboot-transformed/materialize-shim.js');
     }
   },
 
   treeForVendor(tree) {
-    let trees = [];
+    const trees = [];
 
     if (tree) {
       trees.push(tree);
     }
 
-    let materializePath = path.join(this.project.root, this.app.bowerDirectory, 'materialize', 'dist', 'js');
+    const materializePath = path.join(this.project.root, this.app.bowerDirectory, 'materialize', 'dist', 'js');
     if (existsSync(materializePath)) {
-      let materializeTree = fastbootTransform(new Funnel(materializePath, {
+      const materializeTree = fastbootTransform(new Funnel(materializePath, {
         files: ['materialize.js'],
-        destDir: 'materialize'
+        destDir: 'fastboot-transformed/materialize'
       }));
 
       trees.push(materializeTree);
     }
 
-    return new Merge(trees);
+    const vendorPath = path.join(this.project.root, 'vendor');
+    trees.push(fastbootTransform(new Funnel(vendorPath, {
+      files: ['materialize-shim.js'],
+      destDir: 'fastboot-transformed'
+    })));
+
+    return new Merge(trees, { overwrite: false });
   }
 };
