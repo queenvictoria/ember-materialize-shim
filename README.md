@@ -32,7 +32,7 @@ And import materialize javascript
 
 **my-file.js**
 ```js
-import Materialize from 'materialize';
+import M from 'materialize';
 ```
 
 Optionally, you may omit the JavaScript component of Materialize, by customizing your `ember-cli-build.js`
