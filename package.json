@@ -61,7 +61,7 @@
     "broccoli-merge-trees": "^2.0.0",
     "ember-cli-babel": "^6.11.0",
     "ember-cli-htmlbars": "^2.0.3",
-    "ember-cli-sass": "aexmachina/ember-cli-sass#fb2595ff5bce1010c0fee472f389ffbfe7689c04",
+    "ember-cli-sass": "7.1.3",
     "exists-sync": "^0.0.4",
     "fastboot-transform": "^0.1.2"
   },
