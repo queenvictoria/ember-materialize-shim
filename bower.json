@@ -1,6 +1,7 @@
 {
   "name": "ember-materialize-shim",
   "dependencies": {
-    "materialize": "0.97.7"
+    "materialize": "0.97.7",
+    "roboto-fontface": "^0.8.0"
   }
 }

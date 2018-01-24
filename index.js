@@ -26,7 +26,7 @@ let FONT_FILES = [
 ];
 
 function fontPath(app, name) {
-  return `${app.bowerDirectory  }/materialize/dist/fonts/roboto/${  name}`;
+  return `${app.bowerDirectory}/roboto-fontface/fonts/roboto/${name}`;
 }
 
 module.exports = {
