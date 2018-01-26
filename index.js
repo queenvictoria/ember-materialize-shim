@@ -7,7 +7,7 @@ const Merge = require('broccoli-merge-trees');
 const fastbootTransform = require('fastboot-transform');
 const existsSync = require('exists-sync');
 
-let FONT_FILES = [
+const FONT_FILES = [
   'Roboto-Thin.woff2',
   'Roboto-Thin.woff',
   'Roboto-Thin.ttf',
@@ -25,10 +25,6 @@ let FONT_FILES = [
   'Roboto-Bold.ttf'
 ];
 
-function fontPath(app, name) {
-  return `${app.bowerDirectory}/roboto-fontface/fonts/roboto/${name}`;
-}
-
 module.exports = {
   name: 'ember-materialize-shim',
   included(appOrAddon) {
@@ -40,7 +36,7 @@ module.exports = {
     this.app = app;
 
     for (let i = 0; i < FONT_FILES.length; i++) {
-      app.import(fontPath(app, FONT_FILES[i]), {
+      app.import(`node_modules/roboto-fontface/fonts/roboto/${FONT_FILES[i]}`, {
         destDir: 'assets'
       });
     }
@@ -58,7 +54,7 @@ module.exports = {
       trees.push(tree);
     }
 
-    const materializePath = path.join(this.project.root, this.app.bowerDirectory, 'materialize', 'dist', 'js');
+    const materializePath = path.join(this.project.root, 'node_modules', 'materialize-css', 'dist', 'js');
     if (existsSync(materializePath)) {
       const materializeTree = fastbootTransform(new Funnel(materializePath, {
         files: ['materialize.js'],
