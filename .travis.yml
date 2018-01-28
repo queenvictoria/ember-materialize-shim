@@ -5,7 +5,7 @@ node_js:
   # so that your addon works for all apps
   - "4"
 
-sudo: false
+sudo: required
 dist: trusty
 
 addons:
@@ -42,8 +42,15 @@ install:
   - yarn install --no-lockfile --non-interactive
   - bower install
 
+before_script:
+    - sudo chown root /opt/google/chrome/chrome-sandbox
+    - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
+
 script:
   - yarn lint:js
   # Usually, it's ok to finish the test scenario without reverting
   #  to the addon's original dependency state, skipping "cleanup".
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
+
+after_failure:
+  - cat /tmp/error.dump.*.log
