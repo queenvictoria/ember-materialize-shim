@@ -7,27 +7,10 @@ const Merge = require('broccoli-merge-trees');
 const fastbootTransform = require('fastboot-transform');
 const existsSync = require('exists-sync');
 
-let FONT_FILES = [
-  'Roboto-Thin.woff2',
-  'Roboto-Thin.woff',
-  'Roboto-Thin.ttf',
-  'Roboto-Light.woff2',
-  'Roboto-Light.woff',
-  'Roboto-Light.ttf',
-  'Roboto-Regular.woff2',
-  'Roboto-Regular.woff',
-  'Roboto-Regular.ttf',
-  'Roboto-Medium.woff2',
-  'Roboto-Medium.woff',
-  'Roboto-Medium.ttf',
-  'Roboto-Bold.woff2',
-  'Roboto-Bold.woff',
-  'Roboto-Bold.ttf'
-];
-
-function fontPath(app, name) {
-  return `${app.bowerDirectory  }/materialize/dist/fonts/roboto/${  name}`;
-}
+/**
+ * @type {string}
+ */
+const MATERIALIZE_JS_PATH = require.resolve('materialize-css');
 
 module.exports = {
   name: 'ember-materialize-shim',
@@ -38,12 +21,6 @@ module.exports = {
       app = appOrAddon.app;
     }
     this.app = app;
-
-    for (let i = 0; i < FONT_FILES.length; i++) {
-      app.import(fontPath(app, FONT_FILES[i]), {
-        destDir: 'assets'
-      });
-    }
 
     if (!(app.options['materialize-shim'] || {}).omitJS) {
       app.import('vendor/materialize/materialize.js');
@@ -62,14 +39,24 @@ module.exports = {
       trees.push(tree);
     }
 
-    let materializePath = path.join(this.project.root, this.app.bowerDirectory, 'materialize', 'dist', 'js');
+    let materializePath = path.join(MATERIALIZE_JS_PATH, '..');
     if (existsSync(materializePath)) {
-      let materializeTree = fastbootTransform(new Funnel(materializePath, {
-        files: ['materialize.js'],
-        destDir: 'materialize'
-      }));
+      let materializeJsTree = fastbootTransform(
+        new Funnel(materializePath, {
+          files: ['materialize.js'],
+          destDir: 'materialize'
+        })
+      );
+      let materializeFontsTree = fastbootTransform(
+        new Funnel(path.join(materializePath, '..', 'fonts'), {
+          destDir: 'fonts'
+        })
+      );
 
-      trees.push(materializeTree);
+      trees.push(materializeJsTree);
+      trees.push(materializeFontsTree);
+    } else {
+      throw new Error(`Could not find materialize JS at ${materializePath}`);
     }
 
     return new Merge(trees);
