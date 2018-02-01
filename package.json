@@ -20,13 +20,12 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
-    "ember-cli": "2.18.0",
+    "ember-cli": "2.18.1",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.2.3",
     "ember-cli-fastboot": "^1.0.0-beta.19",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-qunit": "^4.0.0",
-    "ember-cli-release": "1.0.0-beta.2",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.0.0",
@@ -57,7 +56,7 @@
     "android"
   ],
   "dependencies": {
-    "broccoli-funnel": "^1.2.0",
+    "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^2.0.0",
     "broccoli-stew": "^1.5.0",
     "ember-cli-babel": "^6.6.0",

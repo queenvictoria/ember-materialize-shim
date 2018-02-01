@@ -6,13 +6,13 @@ const Merge = require('broccoli-merge-trees');
 const fastbootTransform = require('fastboot-transform');
 const existsSync = require('exists-sync');
 
-const { getFontPaths, getMaterializePaths } = require('./utils.js');
+const utils = require('./utils.js');
 
 /**
  * @type {string}
  */
-const MATERIALIZE_JS_FOLDER = getMaterializePaths().jsDir;
-const FONTS_FOLDER = getFontPaths().rootDir;
+const MATERIALIZE_JS_FOLDER = utils.getMaterializePaths().jsDir;
+const FONTS_FOLDER = utils.getFontPaths().rootDir;
 
 module.exports = {
   name: 'ember-materialize-shim',
@@ -30,7 +30,7 @@ module.exports = {
     }
 
     if (!(app.options['materialize-shim'] || {}).omitFonts) {
-      getFontPaths().robotoFiles.forEach(font => {
+      utils.getFontPaths().robotoFiles.forEach(font => {
         app.import(`vendor/fonts/roboto/${font}`, {
           destDir: 'assets'
         });
