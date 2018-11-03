@@ -1,9 +1,8 @@
----
 language: node_js
 node_js:
   # we recommend testing addons with the same minimum supported node version as Ember CLI
   # so that your addon works for all apps
-  - "4"
+  - 'stable'
 
 sudo: required
 dist: trusty
@@ -18,15 +17,6 @@ env:
   global:
     # See https://git.io/vdao3 for details.
     - JOBS=1
-  matrix:
-    # we recommend new addons test the current and previous LTS
-    # as well as latest stable release (bonus points to beta/canary)
-    - EMBER_TRY_SCENARIO=ember-lts-2.12
-    - EMBER_TRY_SCENARIO=ember-lts-2.16
-    - EMBER_TRY_SCENARIO=ember-release
-    - EMBER_TRY_SCENARIO=ember-beta
-    - EMBER_TRY_SCENARIO=ember-canary
-    - EMBER_TRY_SCENARIO=ember-default
 
 matrix:
   fast_finish: true
@@ -43,8 +33,8 @@ install:
   - bower install
 
 before_script:
-    - sudo chown root /opt/google/chrome/chrome-sandbox
-    - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
+  - sudo chown root /opt/google/chrome/chrome-sandbox
+  - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
 
 script:
   - yarn lint:js
@@ -54,3 +44,18 @@ script:
 
 after_failure:
   - cat /tmp/error.dump.*.log
+
+stages:
+  - basic test
+  - additional tests
+jobs:
+  fail_fast: true
+  include:
+    - stage: basic test
+      env: EMBER_TRY_SCENARIO=ember-release
+    - stage: additional tests
+      env: EMBER_TRY_SCENARIO=ember-lts-2.12
+    - env: EMBER_TRY_SCENARIO=ember-lts-2.16
+    - env: EMBER_TRY_SCENARIO=ember-beta
+  allow_failures:
+    - env: EMBER_TRY_SCENARIO=ember-canary
