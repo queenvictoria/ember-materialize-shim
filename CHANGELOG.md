@@ -1,3 +1,10 @@
+## [0.6.1](https://github.com/levanto-financial/ember-materialize-shim/compare/v0.6.0...v0.6.1) (2018-11-27)
+
+
+### Bug Fixes
+
+* optionalDependencies -> devDependencies ([4ba6d5b](https://github.com/levanto-financial/ember-materialize-shim/commit/4ba6d5b))
+
 # [0.6.0](https://github.com/levanto-financial/ember-materialize-shim/compare/v0.5.1...v0.6.0) (2018-11-12)
 
 
