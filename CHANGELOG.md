@@ -1,3 +1,10 @@
+## [0.6.2](https://github.com/levanto-financial/ember-materialize-shim/compare/v0.6.1...v0.6.2) (2018-11-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency broccoli-merge-trees to v3.0.2 ([b232f19](https://github.com/levanto-financial/ember-materialize-shim/commit/b232f19))
+
 ## [0.6.1](https://github.com/levanto-financial/ember-materialize-shim/compare/v0.6.0...v0.6.1) (2018-11-27)
 
 
