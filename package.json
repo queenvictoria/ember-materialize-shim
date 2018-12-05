@@ -11,8 +11,7 @@
     "lint:js": "eslint .",
     "start": "ember server",
     "test": "ember try:testall",
-    "semantic-release": "semantic-release",
-    "travis-deploy-once": "travis-deploy-once"
+    "semantic-release": "semantic-release"
   },
   "repository": "https://github.com/levanto-financial/ember-materialize-shim",
   "engines": {
@@ -52,7 +51,6 @@
     "husky": "1.2.0",
     "loader.js": "4.7.0",
     "semantic-release": "15.12.3",
-    "travis-deploy-once": "5.0.9",
     "sass": "1.15.1"
   },
   "keywords": [
