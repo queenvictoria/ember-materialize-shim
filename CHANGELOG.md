@@ -1,3 +1,10 @@
+## [0.6.12](https://github.com/levanto-financial/ember-materialize-shim/compare/v0.6.11...v0.6.12) (2019-03-29)
+
+
+### Bug Fixes
+
+* **deps:** ember-cli-babel ([cb7c800](https://github.com/levanto-financial/ember-materialize-shim/commit/cb7c800))
+
 ## [0.6.11](https://github.com/levanto-financial/ember-materialize-shim/compare/v0.6.10...v0.6.11) (2019-03-28)
 
 
