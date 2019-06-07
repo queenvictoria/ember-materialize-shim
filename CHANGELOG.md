@@ -1,3 +1,11 @@
+## [0.6.13](https://github.com/levanto-financial/ember-materialize-shim/compare/v0.6.12...v0.6.13) (2019-06-07)
+
+
+### Bug Fixes
+
+* **deps:** ember-cli-sass ([8b8c2ac](https://github.com/levanto-financial/ember-materialize-shim/commit/8b8c2ac))
+* **deps:** ember-cli-sass ([#203](https://github.com/levanto-financial/ember-materialize-shim/issues/203)) ([a7267d1](https://github.com/levanto-financial/ember-materialize-shim/commit/a7267d1))
+
 ## [0.6.12](https://github.com/levanto-financial/ember-materialize-shim/compare/v0.6.11...v0.6.12) (2019-03-29)
 
 
