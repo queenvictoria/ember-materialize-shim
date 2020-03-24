@@ -18,8 +18,8 @@ module.exports = {
     this.app = app;
 
     if (!(app.options['materialize-shim'] || {}).omitJS) {
-      app.import('node_modules/materialize-css/materialize.js');
-      app.import('node_modules/materialize-shim.js', {
+      app.import('vendor/materialize/materialize.js');
+      app.import('vendor/materialize-shim.js', {
         exports: {
           materialize: ['default']
         }
