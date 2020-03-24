@@ -7,28 +7,6 @@ const Merge = require('broccoli-merge-trees');
 const fastbootTransform = require('fastboot-transform');
 const existsSync = require('exists-sync');
 
-let FONT_FILES = [
-  'Roboto-Thin.woff2',
-  'Roboto-Thin.woff',
-  'Roboto-Thin.ttf',
-  'Roboto-Light.woff2',
-  'Roboto-Light.woff',
-  'Roboto-Light.ttf',
-  'Roboto-Regular.woff2',
-  'Roboto-Regular.woff',
-  'Roboto-Regular.ttf',
-  'Roboto-Medium.woff2',
-  'Roboto-Medium.woff',
-  'Roboto-Medium.ttf',
-  'Roboto-Bold.woff2',
-  'Roboto-Bold.woff',
-  'Roboto-Bold.ttf'
-];
-
-function fontPath(app, name) {
-  return `${app.bowerDirectory  }/materialize/dist/fonts/roboto/${  name}`;
-}
-
 module.exports = {
   name: 'ember-materialize-shim',
   included(appOrAddon) {
@@ -39,14 +17,8 @@ module.exports = {
     }
     this.app = app;
 
-    for (let i = 0; i < FONT_FILES.length; i++) {
-      app.import(fontPath(app, FONT_FILES[i]), {
-        destDir: 'assets'
-      });
-    }
-
     if (!(app.options['materialize-shim'] || {}).omitJS) {
-      app.import('vendor/materialize/materialize.js');
+      app.import('vendor/materialize-css/materialize.js');
       app.import('vendor/materialize-shim.js', {
         exports: {
           materialize: ['default']
