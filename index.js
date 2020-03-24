@@ -18,8 +18,8 @@ module.exports = {
     this.app = app;
 
     if (!(app.options['materialize-shim'] || {}).omitJS) {
-      app.import('vendor/materialize-css/materialize.js');
-      app.import('vendor/materialize-shim.js', {
+      app.import('node_modules/materialize-css/materialize.js');
+      app.import('node_modules/materialize-shim.js', {
         exports: {
           materialize: ['default']
         }
@@ -34,7 +34,7 @@ module.exports = {
       trees.push(tree);
     }
 
-    let materializePath = path.join(this.project.root, this.app.bowerDirectory, 'materialize', 'dist', 'js');
+    let materializePath = path.join(this.project.root, 'node_modules', 'materialize-css', 'dist', 'js');
     if (existsSync(materializePath)) {
       let materializeTree = fastbootTransform(new Funnel(materializePath, {
         files: ['materialize.js'],
